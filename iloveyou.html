@@ -1,0 +1,2065 @@
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+	  <title>Selamat Ulang Tahun, Nisrina Irawanto</title>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+	  <link rel="stylesheet" type="text/css" href="style.css" />
+	  <style type="text/css">
+	  	body{
+	  		overflow: hidden;
+	  		background: black;
+	  		width: 100%;
+	  		height: 100vh;
+	  	}
+	  	.bg{
+	  		width: 100%;
+	  		height: 100vh;
+	  		position: absolute;
+	  		z-index: -1;
+	  	}
+	  	.ubuntu{
+	  		background: linear-gradient(to left,#8942A8,#BA382F);
+	  		opacity: 0;
+	  	}
+	  	.dawn{
+	  		background: linear-gradient(0deg, rgba(133,26,0,1) 3%, rgba(255,51,0,1) 19%, rgba(181,103,47,1) 45%, rgba(52,142,200,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.morning{
+	  		background: linear-gradient(0deg, rgba(255,230,113,1) 0%, rgba(82,167,255,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.noon{
+	  		background: linear-gradient(0deg, rgba(22,183,255,1) 0%, rgba(14,116,223,1) 58%, rgba(1,7,170,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.afternoon{
+	  		background: linear-gradient(0deg, rgba(161,133,255,1) 0%, rgba(0,118,226,1) 61%, rgba(1,81,170,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.sunset{
+	  		background: linear-gradient(0deg, rgba(195,75,42,1) 0%, rgba(129,29,121,1) 8%, rgba(89,1,170,1) 29%, rgba(1,5,79,1) 90%);
+	  		opacity: 0;
+	  	}
+	  	.evening{
+	  		background: linear-gradient(0deg, rgba(0,7,128,1) 0%, rgba(0,3,54,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.midnight{
+	  		background: linear-gradient(0deg, rgba(0,3,60,1) 0%, rgba(0,0,0,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.red{
+	  		background: linear-gradient(90deg, rgba(255,0,255,1) 0%, rgba(255,0,0,1) 50%, rgba(255,255,0,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.green{
+	  		background: linear-gradient(90deg, rgba(255,255,0,1) 0%, rgba(0,255,0,1) 50%, rgba(0,255,255,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.blue{
+	  		background: linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(0,0,255,1) 50%, rgba(255,0,255,1) 100%);
+	  		opacity: 0;
+	  	}
+	  	.jam,.ucapan,.quotes{
+	  		margin: 0px;
+	  		padding: 0px;
+	  		position: absolute;
+	  		color: #fff;
+	  		transition: all 5s ease, color 1s ease;
+	  	}
+	  	.jam{
+	  		opacity: 0;
+	  		font-size: 100pt;
+	  		left: 50%;
+	  		bottom: 50%;
+	  		transform: translate(-50%,calc(50% - 0px));
+	  	}
+	  	.ucapan{
+	  		font-size: 25pt;
+	  		left: 50%;
+	  		bottom: 50%;
+	  		width: 90%;
+	  		text-align: center;
+	  		transform: translate(-50%,calc(50% + 110px));
+	  	}
+	  	.sub-ucapan{
+	  		font-size: 14pt;
+	  		margin-top: 6px;
+	  		opacity: 0.9;
+	  	}
+	  	.quotes{
+	  		left: 50%;
+	  		bottom: 15px;
+	  		width: 85%;
+	  		transform: translate(-50%,0%);
+	  		text-align: center;
+	  		font-size: 15pt;
+	  		text-shadow: 0px 0px 10px #000;
+	  	}
+	  	.kontrol{
+	  		margin: 20px;
+	  		background: #fff;
+	  		padding: 20px;
+	  		position: absolute;
+	  		width: 200px;
+	  		min-height: 250px;
+	  		border-radius: 10px;
+	  		left: -220px;
+	  		transition: all 1 ease;
+	  		z-index: 99;
+	  		box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+	  	}
+	  	.panah{
+	  		content: '';
+	  		width: 20px;
+	  		height: 20px;
+	  		position: absolute;
+	  		top: 95px;
+	  		right: -30px;
+	  		border: 5px solid white;
+	  		border-bottom: none;
+	  		border-left: none;
+	  		border-radius: 5px;
+	  		border-top-left-radius: 3px;
+	  		border-bottom-right-radius: 3px;
+	  		transform: rotate(45deg);
+	  		z-index: 50;
+	  		cursor: pointer;
+	  		transition: transform 0.3s ease, border-color 0.5s ease;
+	  	}
+	  	.panah2{
+	  		content: '';
+	  		width: 20px;
+	  		height: 20px;
+	  		position: absolute;
+	  		top: 140px;
+	  		right: -30px;
+	  		border: 5px solid white;
+	  		border-bottom: none;
+	  		border-left: none;
+	  		border-radius: 5px;
+	  		border-top-left-radius: 3px;
+	  		border-bottom-right-radius: 3px;
+	  		transform: rotate(45deg);
+	  		z-index: 50;
+	  		cursor: pointer;
+	  		transition: transform 0.3s ease, border-color 0.5s ease;
+	  	}
+	  	#isi-galeri{
+	  		display: none;
+	  		max-height: 75vh;
+	  		overflow-y: auto;
+	  		padding-right: 4px;
+	  	}
+	  	.galeri-header{
+	  		font-weight: bold;
+	  		font-size: 14pt;
+	  		color: #333;
+	  		text-align: center;
+	  		margin-bottom: 4px;
+	  	}
+	  	.galeri-sub{
+	  		font-size: 9pt;
+	  		color: #777;
+	  		text-align: center;
+	  		margin-bottom: 12px;
+	  	}
+	  	.galeri-grid{
+	  		display: grid;
+	  		grid-template-columns: repeat(2, 1fr);
+	  		gap: 10px;
+	  	}
+	  	.galeri-item{
+	  		background: #f8f9fa;
+	  		border: 1px solid #e2e6ea;
+	  		border-radius: 8px;
+	  		padding: 6px;
+	  		text-align: center;
+	  		cursor: pointer;
+	  		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	  		position: relative;
+	  	}
+	  	.galeri-item:hover{
+	  		transform: translateY(-2px);
+	  		box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+	  	}
+	  	.galeri-item img{
+	  		width: 100%;
+	  		height: 110px;
+	  		object-fit: cover;
+	  		border-radius: 5px;
+	  		background: #eee;
+	  	}
+	  	.galeri-caption{
+	  		font-size: 8.5pt;
+	  		color: #444;
+	  		margin-top: 5px;
+	  		white-space: nowrap;
+	  		overflow: hidden;
+	  		text-overflow: ellipsis;
+	  	}
+	  	.galeri-actions{
+	  		margin-top: 12px;
+	  		text-align: center;
+	  	}
+	  	.hapus-foto{
+	  		position: absolute;
+	  		top: 8px;
+	  		right: 8px;
+	  		background: rgba(220,53,69,0.85);
+	  		color: #fff;
+	  		border: none;
+	  		border-radius: 50%;
+	  		width: 20px;
+	  		height: 20px;
+	  		font-size: 11px;
+	  		line-height: 18px;
+	  		cursor: pointer;
+	  		padding: 0;
+	  	}
+	  	.lightbox-overlay{
+	  		display: none;
+	  		position: fixed;
+	  		top: 0;
+	  		left: 0;
+	  		width: 100%;
+	  		height: 100%;
+	  		background: rgba(0,0,0,0.85);
+	  		z-index: 9999;
+	  		align-items: center;
+	  		justify-content: center;
+	  		flex-direction: column;
+	  		padding: 20px;
+	  	}
+	  	.lightbox-overlay img{
+	  		max-width: 90%;
+	  		max-height: 80vh;
+	  		border-radius: 10px;
+	  		border: 4px solid #fff;
+	  		box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+	  	}
+	  	.lightbox-caption{
+	  		color: #fff;
+	  		margin-top: 12px;
+	  		font-size: 13pt;
+	  		text-align: center;
+	  	}
+	  	.lightbox-close{
+	  		position: absolute;
+	  		top: 20px;
+	  		right: 30px;
+	  		color: #fff;
+	  		font-size: 30pt;
+	  		cursor: pointer;
+	  		line-height: 1;
+	  	}
+  		.kotak{
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			overflow: hidden;
+  			z-index: -1;
+  		}
+  		.kotak li{
+  			position: absolute;
+  			display: block;
+  			list-style: none;
+  			width: 25px;
+  			height: 25px;
+  			background: rgba(255,255,255,0.2);
+  			animation: animate 20s linear infinite; 
+  			bottom: -150px;
+  			transition: all 1s ease;
+  		}
+  		.kotak li:nth-child(1){
+  			left: 86%;
+  			width: 80px;
+  			height: 80px;
+  			animation-delay: 0s;
+  		}
+  		.kotak li:nth-child(2){
+  			left: 12%;
+  			width: 30px;
+  			height: 30px;
+  			animation-delay: 1.5s;
+  			animation-duration: 10s;
+  		}
+  		.kotak li:nth-child(3){
+  			left: 70%;
+  			width: 100px;
+  			height: 100px;
+  			animation-delay: 5.5s;
+  		}
+  		.kotak li:nth-child(4){
+  			left: 42%;
+  			width: 150px;
+  			height: 150px;
+  			animation-delay: 0s;
+  			animation-duration: 15s; 
+  		}
+  		.kotak li:nth-child(5){
+  			left: 15%;
+  			width: 110px;
+  			height: 110px;
+  			animation-delay: 3.5s;
+  		}
+  		.bulat{
+  			position: absolute;
+  			width: 600px;
+  			height: 600px;
+  			display: flex;
+  			left:50%;
+	  		bottom: 50%;
+	  		transform: translate(-50%,50%) scale(0);
+	  		transition: 3s all ease;
+  		}
+  		.bulat span:nth-child(1){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 2px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate2 6s linear infinite;
+  		}
+  		.bulat span:nth-child(2){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 2px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate3 4s linear infinite;
+  		}
+  		.bulat span:nth-child(3){
+  			position: absolute;
+  			top: 0;
+  			left: 0;
+  			width: 100%;
+  			height: 100%;
+  			border: 5px solid #fff;
+  			border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  			transition: 0.5s;
+  			animation: animate2 10s linear infinite;
+  		}
+  		@keyframes animate{
+  			0%{
+  				transform: translateY(0) rotate(0deg);
+  				opacity: 1;
+  			}
+  			100%{
+  				transform: translateY(-100vh) rotate(360deg);
+  				opacity: 0;
+  			}
+  		}
+  		@keyframes animate2{
+  			0%{
+  				transform:rotate(0deg);
+  			}
+  			100%{
+  				transform:rotate(360deg);
+  			}
+  		}
+  		@keyframes animate3{
+  			0%{
+  				transform:rotate(360deg);
+  			}
+  			100%{
+  				transform:rotate(0deg);
+  			}
+  		}
+  		@media only screen and (max-width: 900px), screen and (max-height: 700px) {
+  			.jam,.ucapan{
+  				transition: all 1s ease;
+  			}
+			.jam{
+		  		font-size: 50pt;
+		  		transform: translate(-50%,calc(50% - 0px));
+		  	}
+		  	.ucapan{
+		  		font-size: 15pt;
+		  		transform: translate(-50%,calc(50% + 55px));
+		  	}
+		  	.sub-ucapan{
+		  		font-size: 10pt;
+		  	}
+		  	.quotes{
+		  		font-size: 10pt;
+		  	}
+		  	.bulat{
+	  			width: 300px;
+	  			height: 300px;
+	  		}
+  		}
+  		@media only screen and (max-width: 500px){
+  			.ucapan{
+		  		font-size: 11pt;
+		  	}
+		  	.sub-ucapan{
+		  		font-size: 8pt;
+		  	}
+		  	.quotes{
+		  		font-size: 8pt;
+		  	}
+  		}
+	  </style>
+	</head>
+	<body onload="init_auto()">
+		<div class="kontrol">
+			<div class="panah" title="Tema"></div>
+			<div class="panah2" title="Galery Foto"></div>
+			<div id="isi-tema">
+				<div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio0" name="example1" checked>
+			      <label class="custom-control-label" for="customRadio0">Time</label>
+			    </div>   
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio1" name="example1">
+			      <label class="custom-control-label" for="customRadio1">Happy</label>
+			    </div>   
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio2" name="example1">
+			      <label class="custom-control-label" for="customRadio2">Dawn</label>
+			    </div> 
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio3" name="example1">
+			      <label class="custom-control-label" for="customRadio3">Morning</label>
+			    </div> 
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio4" name="example1">
+			      <label class="custom-control-label" for="customRadio4">Noon</label>
+			    </div> 
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio5" name="example1">
+			      <label class="custom-control-label" for="customRadio5">Afternoon</label>
+			    </div> 
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio6" name="example1">
+			      <label class="custom-control-label" for="customRadio6">Sunset</label>
+			    </div> 
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio7" name="example1">
+			      <label class="custom-control-label" for="customRadio7">Evening</label>
+			    </div> 
+			    <div class="custom-control custom-radio">
+			      <input type="radio" class="custom-control-input" id="customRadio8" name="example1">
+			      <label class="custom-control-label" for="customRadio8">Midnight</label>
+			    </div>
+			</div>
+			<div id="isi-galeri">
+				<div class="galeri-header">Galery Foto</div>
+				<div class="galeri-sub">Nisrina Irawanto ❤️</div>
+				<div class="galeri-grid" id="galeriGrid"></div>
+				<div class="galeri-actions">
+					<input type="file" id="inputFotoGaleri" accept="image/*" multiple style="display:none">
+					<button type="button" class="btn btn-sm btn-danger btn-block" onclick="document.getElementById('inputFotoGaleri').click()">+ Tambah Foto</button>
+				</div>
+			</div>
+		</div>
+		<div class="lightbox-overlay" id="lightboxModal" onclick="tutupLightbox(event)">
+			<span class="lightbox-close" onclick="tutupLightbox(event)">&times;</span>
+			<img id="lightboxImg" src="" alt="Foto Nisrina">
+			<div class="lightbox-caption" id="lightboxCaption"></div>
+		</div>
+		<div class="bg ubuntu"></div>
+		<div class="bg dawn"></div>
+		<div class="bg morning"></div>
+		<div class="bg noon"></div>
+		<div class="bg afternoon"></div>
+		<div class="bg sunset"></div>
+		<div class="bg evening"></div>
+		<div class="bg midnight"></div>
+		<div class="bg red"></div>
+		<div class="bg green"></div>
+		<div class="bg blue"></div>
+		<div class="container">
+			<div class="quotes">
+				<p id="quotation"></p>
+				<p id="source"></p>
+			</div>
+			<ul class="kotak">
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<div class="bulat">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+			<div class="jam" id="time">
+				00:00:00
+			</div>
+			<div class="ucapan">
+				<div id="quote"></div>
+				<div class="sub-ucapan" id="subquote"></div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+		<script type="text/javascript">
+			gaming=false;
+			panelAktif=null; // null, 'tema', atau 'galeri'
+
+			function tutupPanel(){
+				var lebar = $(".kontrol").outerWidth();
+				$(".panah").css("transform","rotate(45deg)");
+				$(".panah2").css("transform","rotate(45deg)");
+				$(".kontrol").stop().animate({left: (-lebar - 20) + "px"}, 300);
+				panelAktif=null;
+			}
+
+			$(".panah").click(function(e){
+				e.stopPropagation();
+				if (panelAktif !== 'tema'){
+					var wasClosed = (panelAktif === null);
+					$("#isi-galeri").hide();
+					$("#isi-tema").show();
+					$(".kontrol").css("width", "200px");
+					if (wasClosed){
+						$(".kontrol").css("left", "-220px");
+					}
+					$(".panah").css("transform","rotate(225deg)");
+					$(".panah2").css("transform","rotate(45deg)");
+					$(".kontrol").stop().animate({left: "0px"}, 300);
+					panelAktif='tema';
+				}else{
+					tutupPanel();
+				}
+			});
+
+			$(".panah2").click(function(e){
+				e.stopPropagation();
+				if (panelAktif !== 'galeri'){
+					var wasClosed = (panelAktif === null);
+					$("#isi-tema").hide();
+					$("#isi-galeri").show();
+					var targetWidth = Math.min(340, $(window).width() - 70);
+					$(".kontrol").css("width", targetWidth + "px");
+					if (wasClosed){
+						$(".kontrol").css("left", (-targetWidth - 20) + "px");
+					}
+					$(".panah2").css("transform","rotate(225deg)");
+					$(".panah").css("transform","rotate(45deg)");
+					$(".kontrol").stop().animate({left: "0px"}, 300);
+					panelAktif='galeri';
+				}else{
+					tutupPanel();
+				}
+			});
+
+			// Galery Foto Default & Custom
+			var defaultFotos = [
+				{ src: "foto1.jpg", caption: "Selamat Ulang Tahun ❤️" },
+				{ src: "foto2.jpg", caption: "Senyum Manismu" },
+				{ src: "foto3.jpg", caption: "Bahagia Selalu" },
+				{ src: "foto4.jpg", caption: "Kesayangan Aku" },
+				{ src: "foto5.jpg", caption: "Momen Indah" },
+				{ src: "foto6.jpg", caption: "Aku Mencintaimu Selalu" }
+			];
+
+			function buatPlaceholderSVG(teks){
+				var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240">' +
+					'<defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">' +
+					'<stop offset="0%" stop-color="#ff9a9e"/><stop offset="100%" stop-color="#fecfef"/></linearGradient></defs>' +
+					'<rect width="300" height="240" fill="url(#g)"/>' +
+					'<text x="150" y="105" font-family="sans-serif" font-size="42" text-anchor="middle" fill="#fff">❤️</text>' +
+					'<text x="150" y="145" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">' + teks + '</text>' +
+					'</svg>';
+				return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+			}
+
+			function ambilFotoTersimpan(){
+				try {
+					var data = localStorage.getItem("galeri_nisrina_fotos");
+					return data ? JSON.parse(data) : [];
+				} catch(e) {
+					return [];
+				}
+			}
+
+			function simpanFotoTersimpan(list){
+				try {
+					localStorage.setItem("galeri_nisrina_fotos", JSON.stringify(list));
+				} catch(e) {}
+			}
+
+			function renderGaleri(){
+				var grid = document.getElementById("galeriGrid");
+				grid.innerHTML = "";
+				var customFotos = ambilFotoTersimpan();
+				var semuaFoto = customFotos.concat(defaultFotos);
+
+				semuaFoto.forEach(function(item, idx){
+					var div = document.createElement("div");
+					div.className = "galeri-item";
+					var img = document.createElement("img");
+					img.src = item.src;
+					img.alt = item.caption;
+					img.onerror = function(){
+						this.onerror = null;
+						this.src = buatPlaceholderSVG(item.caption);
+					};
+					img.onclick = function(){
+						bukaLightbox(this.src, item.caption);
+					};
+					var cap = document.createElement("div");
+					cap.className = "galeri-caption";
+					cap.innerText = item.caption;
+
+					div.appendChild(img);
+					div.appendChild(cap);
+
+					if (idx < customFotos.length){
+						var btnHapus = document.createElement("button");
+						btnHapus.className = "hapus-foto";
+						btnHapus.innerHTML = "&times;";
+						btnHapus.title = "Hapus foto";
+						btnHapus.onclick = function(ev){
+							ev.stopPropagation();
+							customFotos.splice(idx, 1);
+							simpanFotoTersimpan(customFotos);
+							renderGaleri();
+						};
+						div.appendChild(btnHapus);
+					}
+					grid.appendChild(div);
+				});
+			}
+
+			document.getElementById("inputFotoGaleri").addEventListener("change", function(e){
+				var files = e.target.files;
+				if (!files || !files.length) return;
+				var customFotos = ambilFotoTersimpan();
+				Array.from(files).forEach(function(file){
+					var reader = new FileReader();
+					reader.onload = function(ev){
+						customFotos.unshift({
+							src: ev.target.result,
+							caption: file.name.replace(/\.[^/.]+$/, "")
+						});
+						simpanFotoTersimpan(customFotos);
+						renderGaleri();
+					};
+					reader.readAsDataURL(file);
+				});
+				e.target.value = "";
+			});
+
+			function bukaLightbox(src, caption){
+				document.getElementById("lightboxImg").src = src;
+				document.getElementById("lightboxCaption").innerText = caption || "";
+				document.getElementById("lightboxModal").style.display = "flex";
+			}
+
+			function tutupLightbox(e){
+				if (e.target.id === "lightboxModal" || e.target.className === "lightbox-close"){
+					document.getElementById("lightboxModal").style.display = "none";
+				}
+			}
+
+			renderGaleri();
+
+			auto=true;
+			cek=false;
+			$("#isi-tema").click(function(){
+				gaming=false;
+				if($("#customRadio0").prop('checked')){
+					if(!cek){
+						init_auto();
+					}
+					auto=true;
+					cek=true;
+				}
+				else{
+					auto=false;
+					cek=false;
+				}
+				if($("#customRadio1").prop('checked')){
+					ubuntu();
+				}
+				else if($("#customRadio2").prop('checked')){
+					dawn();
+				}
+				else if($("#customRadio3").prop('checked')){
+					morning();
+				}
+				else if($("#customRadio4").prop('checked')){
+					noon();
+				}
+				else if($("#customRadio5").prop('checked')){
+					afternoon();
+				}
+				else if($("#customRadio6").prop('checked')){
+					sunset();
+				}
+				else if($("#customRadio7").prop('checked')){
+					evening();
+				}
+				else if($("#customRadio8").prop('checked')){
+					midnight();
+				}
+				else if($("#customRadio9").prop('checked')){
+					gaming1();
+					gaming=true;
+				}
+				if (gaming==false){
+					nofill();
+				}
+			});
+			function ubuntu(){
+				$(".ubuntu").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				white();
+			}
+			function dawn(){
+				$(".dawn").animate({opacity:"1"},1000);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				black();
+			}
+			function morning(){
+				$(".morning").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				black();
+			}
+			function noon(){
+				$(".noon").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				black();
+			}
+			function afternoon(){
+				$(".afternoon").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				black();
+			}
+			function sunset(){
+				$(".sunset").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".evening").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				white();
+			}
+			function evening(){
+				$(".evening").animate({opacity:"1"},1000);
+				$(".dawn").animate({opacity:"0"},500);
+				$(".ubuntu").animate({opacity:"0"},500);
+				$(".morning").animate({opacity:"0"},500);
+				$(".noon").animate({opacity:"0"},500);
+				$(".afternoon").animate({opacity:"0"},500);
+				$(".sunset").animate({opacity:"0"},500);
+				$(".midnight").animate({opacity:"0"},500);
+				$(".red").animate({opacity:"0"},500);
+				$(".green").animate({opacity:"0"},500);
+				$(".blue").animate({opacity:"0"},500);
+				white();
+			}
+			function midnight(){
+				$(".midnight").animate({opacity:"1"},2000);
+				$(".dawn").animate({opacity:"0"},2000);
+				$(".ubuntu").animate({opacity:"0"},2000);
+				$(".morning").animate({opacity:"0"},2000);
+				$(".noon").animate({opacity:"0"},2000);
+				$(".afternoon").animate({opacity:"0"},2000);
+				$(".sunset").animate({opacity:"0"},2000);
+				$(".evening").animate({opacity:"0"},2000);
+				$(".red").animate({opacity:"0"},2000);
+				$(".green").animate({opacity:"0"},2000);
+				$(".blue").animate({opacity:"0"},2000);
+				white();
+			}
+			function red(){
+				white();
+				$(".jam").css("color","#F00");
+				$(".ucapan").css("color","#F00");
+				$(".bulat span").css("border-color","#F00");
+				$(".kotak li").css("background","#000");
+				$(".red").animate({opacity:"1"},2000);
+				$(".midnight").animate({opacity:"0"},2000);
+				$(".dawn").animate({opacity:"0"},2000);
+				$(".ubuntu").animate({opacity:"0"},2000);
+				$(".morning").animate({opacity:"0"},2000);
+				$(".noon").animate({opacity:"0"},2000);
+				$(".afternoon").animate({opacity:"0"},2000);
+				$(".sunset").animate({opacity:"0"},2000);
+				$(".evening").animate({opacity:"0"},2000);
+				$(".green").animate({opacity:"0"},2000);
+				$(".blue").animate({opacity:"0"},2000);
+			}
+			function green(){
+				white();
+				$(".jam").css("color","#0F0");
+				$(".ucapan").css("color","#0F0");
+				$(".bulat span").css("border-color","#0F0");
+				$(".kotak li").css("background","#000");
+				$(".green").animate({opacity:"1"},2000);
+				$(".midnight").animate({opacity:"0"},2000);
+				$(".dawn").animate({opacity:"0"},2000);
+				$(".ubuntu").animate({opacity:"0"},2000);
+				$(".morning").animate({opacity:"0"},2000);
+				$(".noon").animate({opacity:"0"},2000);
+				$(".afternoon").animate({opacity:"0"},2000);
+				$(".sunset").animate({opacity:"0"},2000);
+				$(".evening").animate({opacity:"0"},2000);
+				$(".red").animate({opacity:"0"},2000);
+				$(".blue").animate({opacity:"0"},2000);
+			}
+			function blue(){
+				white();
+				$(".jam").css("color","#00F");
+				$(".ucapan").css("color","#00F");
+				$(".bulat span").css("border-color","#00F");
+				$(".kotak li").css("background","#000");
+				$(".blue").animate({opacity:"1"},2000);
+				$(".midnight").animate({opacity:"0"},2000);
+				$(".dawn").animate({opacity:"0"},2000);
+				$(".ubuntu").animate({opacity:"0"},2000);
+				$(".morning").animate({opacity:"0"},2000);
+				$(".noon").animate({opacity:"0"},2000);
+				$(".afternoon").animate({opacity:"0"},2000);
+				$(".sunset").animate({opacity:"0"},2000);
+				$(".evening").animate({opacity:"0"},2000);
+				$(".red").animate({opacity:"0"},2000);
+				$(".green").animate({opacity:"0"},2000);
+			}
+			warna=1;
+			function gaming1(){
+				if (gaming){
+					fillblack();
+					if (warna==1){
+						red();
+					}
+					else if (warna==2) {
+						green();
+					}
+					else if (warna==3) {
+						blue();
+					}
+					warna+=1;
+					if (warna==4){
+						warna=1;
+					}
+				}
+			}
+			setInterval(gaming1, 4000);
+			function black(){
+				$(".jam").css("color","#000");
+				$(".ucapan").css("color","#000");
+				$(".quotes").css("color","#000");
+				$(".quotes").css("text-shadow","0px 0px 10px #FFF");
+				$(".bulat span").css("border-color","#000");
+				$(".kotak li").css("background","#000");
+				$(".panah, .panah2").css("border-color","#000");
+			}
+			function fillblack(){
+				$(".bulat span").css("background","#000");
+			}
+			function nofill(){
+				$(".bulat span").css("background","unset");
+			}
+			function white(){
+				$(".jam").css("color","#FFF");
+				$(".ucapan").css("color","#FFF");
+				$(".quotes").css("color","#FFF");
+				$(".quotes").css("text-shadow","0px 0px 10px #000");
+				$(".bulat span").css("border-color","#FFF");
+				$(".kotak li").css("background","#FFF");
+				$(".panah, .panah2").css("border-color","#FFF");
+			}
+			function debug(){
+				console.log(auto);
+			}
+
+			var txt = 'Selamat Ulang Tahun, Nisrina Irawanto';
+			var subTxt = 'Aku mencintaimu selalu';
+			var txt2 = 'txt';
+
+			function checkTime(i) {
+				if (i < 10) {
+						i = "0" + i;
+					}
+				return i;
+				}
+			var H;
+			var M;
+			var S;
+			var starting=true;
+			function startTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+
+				H=h;
+				M=m;
+				S=s;
+
+				txt='Selamat Ulang Tahun, Nisrina Irawanto';
+				if(txt != txt2 && !starting){
+					document.getElementById("quote").innerHTML = txt;
+					document.getElementById("subquote").innerHTML = subTxt;
+				}
+				txt2=txt;
+				starting=false;
+
+				if (auto && m==0 && s==0){
+					if ((h>23) || (h<4)){
+						midnight();
+					}
+					else if(h<6){
+						dawn();
+					}
+					else if(h<9){
+						morning();
+					}
+					else if(h<17){
+						noon();
+					}
+					else if(h<18){
+						afternoon();
+					}
+					else if(h<19){
+						sunset();
+					}
+					else if(h<23){
+						evening();
+					}
+				}
+
+				// add a zero in front of numbers<10
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+				t = setTimeout(function() {
+				startTime()
+				}, 500);
+			}
+			startTime();
+			function init_auto(){
+				randomQuote();
+				if ((H>23) || (H<4)){
+					midnight();
+				}
+				else if(H<6){
+					dawn();
+				}
+				else if(H<9){
+					morning();
+				}
+				else if(H<17){
+					noon();
+				}
+				else if(H<18){
+					afternoon();
+				}
+				else if(H<19){
+					sunset();
+				}
+				else if(H<23){
+					evening();
+				}
+				else{
+					midnight();
+				}
+			}
+
+			const quotes = [
+			  "Kamu tahu nggak bedanya kamu sama bintang? Bintang bersinar di langit, kalau kamu bersinar di hatiku.",
+			  "Kopi apa yang paling manis? Kopi-lirik matamu sambil senyum ke arahku.",
+			  "Kalau mencintaimu adalah kesalahan, biarlah aku nggak pernah benar seumur hidupku.",
+			  "Jangan sering-sering senyum ya, nanti gula di seluruh dunia kalah manis sama kamu.",
+			  "Aku nggak butuh peta atau GPS, soalnya tujuan hidupku udah jelas: ke hati kamu.",
+			  "Kamu itu kayak hujan di sore hari, selalu bikin tenang dan bikin kangen.",
+			  "Tahu nggak kenapa pelangi cuma setengah lingkaran? Karena setengahnya lagi ada di senyummu.",
+			  "Kalau kamu jadi bunga, aku rela jadi lebah yang selalu menjaga di dekatmu.",
+			  "Cintaku ke kamu itu kayak lingkaran, nggak ada awal dan nggak ada ujungnya.",
+			  "Bolehkah aku meminjam namamu? Untuk kusebut di setiap doa malamku.",
+			  "Jepang bikin robot, Jerman bikin mobil, kalau kamu bikin aku jatuh cinta setiap hari.",
+			  "Kamu punya peta nggak? Aku tersesat di dalam tatapan matamu.",
+			  "Meskipun bumi berputar setiap hari, duniaku tetap berhenti setiap kali melihat senyummu.",
+			  "Cukup jaringan aja yang hilang, kamu jangan.",
+			  "Kamu tahu nggak kenapa malam ini nggak ada bintang? Soalnya bintangnya lagi baca tulisan ini.",
+			  "Melihatmu bahagia adalah cara paling sederhana untuk membuatku ikut bahagia.",
+			  "Seandainya rindu itu berbayar, mungkin aku sudah bangkrut sejak kenal kamu.",
+			  "Kamu itu alasan kenapa aku selalu senyum-senyum sendiri tiap lihat layar HP.",
+			  "Nggak perlu nunggu tahun baru buat kembang api, dekat kamu aja hatiku udah berdebar meriah.",
+			  "Tiap hari aku belajar sejarah, tapi yang paling ingin kuhafal cuma sejarah pertemuan kita.",
+			  "Kalau waktu bisa dihentikan, aku mau menghentikannya pas lagi berdua sama kamu.",
+			  "Jangan capek-capek ya hari ini, kan kamu udah seharian berlari-lari di pikiranku.",
+			  "Biar kata orang dunia ini luas, buatku duniaku cuma selebar pelukanmu.",
+			  "Aku nggak pandai merangkai kata, tapi aku pandai mencintaimu tanpa jeda.",
+			  "Ada 8 miliar manusia di bumi, tapi tetap cuma kamu yang paling memikat hatiku.",
+			  "Kamu itu ibarat lagu favorit, diulang seribu kali pun nggak pernah bikin bosan.",
+			  "Selamat ulang tahun ya sayang, semoga semua bahagiamu selalu melibatkan aku di dalamnya.",
+			  "Bertambah satu usiamu, bertambah berlipat ganda pula rasa sayangku padamu.",
+			  "Terima kasih sudah lahir ke dunia ini dan menjadi bagian terindah dalam hidupku.",
+			  "Aku nggak minta bintang atau bulan, aku cuma minta kamu tetap di sisiku selamanya.",
+			  "Kalau disuruh pilih antara napas dan mencintaimu, aku pilih napas terakhirku untuk bilang aku cinta kamu.",
+			  "Senyummu itu kayak charger, sekali lihat langsung penuh lagi semangatku.",
+			  "Katanya gula itu manis, tapi kok kalah manis sama lesung pipimu?",
+			  "Kamu tahu nggak persamaan kamu sama udara? Sama-sama nggak bisa hidup kalau nggak ada kamu.",
+			  "Cinta itu kata kerja, dan mencintaimu adalah pekerjaan favoritku setiap hari.",
+			  "Hari ini langitnya cerah ya, tapi masih kalah cerah dibanding wajahmu waktu tertawa.",
+			  "Kalau rindu itu berat, biar aku aja yang nanggung, asal tujuannya tetap kamu.",
+			  "Jangan jauh-jauh dariku ya, hatiku suka panik kalau nggak lihat kamu.",
+			  "Aku bukan fotografer, tapi aku bisa membayangkan masa depan kita bersama dengan sangat jelas.",
+			  "Kamu itu kayak Wi-Fi, dekat kamu langsung konek ke kebahagiaan.",
+			  "Boleh nggak aku jadi bayanganmu? Biar ke mana pun kamu pergi, aku selalu di sampingmu.",
+			  "Satu detik tanpamu rasanya kayak satu jam, satu jam bersamamu rasanya cuma sedetik.",
+			  "Aku nggak butuh kompas, karena hatiku selalu mengarah ke kamu.",
+			  "Kamu itu definisi dari doa-doa baik yang akhirnya dikabulkan Tuhan untukku.",
+			  "Biarpun cuaca mendung, hatiku tetap pelangi kalau ada kamu.",
+			  "Aku suka kopi, tapi aku jauh lebih suka menghabiskan waktu bersamamu.",
+			  "Kalau cinta itu ujian, aku pasti dapat nilai seratus karena setiap hari belajar mencintaimu.",
+			  "Tatapan matamu itu bahaya, bikin aku lupa daratan dan cuma ingat kamu.",
+			  "Di antara jutaan bintang di angkasa, cuma matamu yang paling bikin aku terpana.",
+			  "Nisrina, kamu adalah hadiah terindah yang pernah semesta berikan kepadaku.",
+			  "Kamu tahu nggak bedanya kamu sama matahari? Matahari menyinari bumi, kalau kamu menyinari hari-hariku.",
+			  "Kamu tahu nggak bedanya kamu sama jam dinding? Jam dinding berdetak tiap detik, kalau kamu bikin jantungku berdebar tiap saat.",
+			  "Kamu tahu nggak bedanya kamu sama lukisan? Lukisan makin lama makin antik, kalau kamu makin hari makin cantik.",
+			  "Kamu tahu nggak bedanya kamu sama kamus? Kamus punya ribuan arti kata, kalau kamu punya seluruh arti hidupku.",
+			  "Kamu tahu nggak bedanya kamu sama pelangi? Pelangi muncul setelah hujan, kalau kamu muncul membawa kebahagiaan.",
+			  "Kamu tahu nggak bedanya kamu sama kembang api? Kembang api indahnya sesaat, kalau kamu indahnya setiap saat.",
+			  "Kamu tahu nggak bedanya kamu sama kopi pagi? Kopi pagi bikin melek mata, kalau kamu bikin melek hati.",
+			  "Kamu tahu nggak bedanya kamu sama bunga mawar? Mawar indah di taman, kalau kamu indah di masa depanku.",
+			  "Kamu tahu nggak bedanya kamu sama musik klasik? Musik klasik menenangkan telinga, kalau suaramu menenangkan jiwaku.",
+			  "Kamu tahu nggak bedanya kamu sama cokelat? Cokelat manis di lidah, kalau senyummu manis di ingatan.",
+			  "Kamu tahu nggak bedanya kamu sama awan putih? Awan menghiasi langit biru, kalau kamu menghiasi relung hatiku.",
+			  "Kamu tahu nggak bedanya kamu sama lampu taman? Lampu taman menerangi jalan, kalau kamu menerangi masa depanku.",
+			  "Kamu tahu nggak bedanya kamu sama novel romantis? Novel romantis cuma cerita fiksi, kalau kita adalah kisah nyata yang abadi.",
+			  "Kamu tahu nggak bedanya kamu sama embun pagi? Embun menyejukkan dedaunan, kalau hadirmu menyejukkan perasaan.",
+			  "Kamu tahu nggak bedanya kamu sama permata? Permata berharga di etalase, kalau kamu berharga di sepanjang hidupku.",
+			  "Kamu tahu nggak bedanya kamu sama lagu cinta? Lagu cinta enak didengar, kalau kamu enak dipandang seumur hidup.",
+			  "Kamu tahu nggak bedanya kamu sama angin sepoi? Angin sepoi menyapa wajah, kalau senyummu menyapa hatiku.",
+			  "Kamu tahu nggak bedanya kamu sama bulan purnama? Bulan purnama terbit sebulan sekali, kalau cantiknya kamu terbit setiap hari.",
+			  "Kamu tahu nggak bedanya kamu sama madu? Madu menyehatkan raga, kalau kasih sayangmu menyehatkan jiwa.",
+			  "Kamu tahu nggak bedanya kamu sama kompas? Kompas menunjuk arah utara, kalau hatiku selalu menunjuk ke arahmu.",
+			  "Tau nggak kenapa aku suka melihat langit malam? Karena di setiap bintangnya, aku selalu teringat binar matamu.",
+			  "Tau nggak kenapa aku suka hari ulang tahunmu? Karena di hari itulah bidadari paling manis di hidupku dilahirkan.",
+			  "Tau nggak kenapa aku suka mendengar suaramu? Karena satu sapaan darimu langsung menghapus semua lelahku.",
+			  "Tau nggak kenapa aku suka berjalan di sampingmu? Karena langkah kakiku terasa paling ringan saat menggenggam tanganmu.",
+			  "Tau nggak kenapa aku suka menatap matamu? Karena di sana aku melihat tempat pulang yang paling nyaman.",
+			  "Tau nggak kenapa aku suka melihatmu tertawa? Karena tawamu adalah melodi paling indah yang pernah kudengar.",
+			  "Tau nggak kenapa aku suka menghabiskan waktu denganmu? Karena bersamamu, hal sederhana pun terasa luar biasa.",
+			  "Tau nggak kenapa aku suka mendoakanmu diam-diam? Karena mencintaimu lewat doa adalah cara terindah memelukmu dari jauh.",
+			  "Tau nggak kenapa aku suka menyimpan fotomu? Karena setiap kali rindu datang, senyummu di foto itu jadi obatnya.",
+			  "Tau nggak kenapa aku suka bangun pagi? Karena aku tahu ada kamu yang membuat hariku layak diperjuangkan.",
+			  "Tau nggak kenapa aku suka suasana senja? Karena hangatnya senja selalu mengingatkanku pada hangatnya perhatianmu.",
+			  "Tau nggak kenapa aku suka hujan rintik-rintik? Karena di setiap tetesnya, ada seribu rindu yang jatuh untukmu.",
+			  "Tau nggak kenapa aku suka belajar hal baru? Karena aku ingin menjadi pribadi terbaik untuk mendampingi hidupmu.",
+			  "Tau nggak kenapa aku suka menulis namamu? Karena namamu adalah kata paling indah yang pernah kukenal.",
+			  "Tau nggak kenapa aku suka tersenyum sendiri? Karena bayangan wajahmu selalu mampir di pikiranku tanpa permisi.",
+			  "Kuda, kuda apa yang bikin seneng? Kudapat pacar sebaik dan secantik kamu.",
+			  "Awan, awan apa yang paling indah? Awanna be with you forever and always.",
+			  "Sate, sate apa yang bikin bahagia? Saterusnya hidup berdua sama kamu.",
+			  "Kipas, kipas apa yang paling ditunggu? Kipastian untuk hidup bahagia bersamamu selamanya.",
+			  "Minyak, minyak apa yang bikin mabuk kepayang? Minyaksikan senyum manismu setiap hari.",
+			  "Tinta, tinta apa yang nggak bisa luntur? Tintaku padamu yang tulus dari lubuk hati paling dalam.",
+			  "Bunga, bunga apa yang paling mekar di hatiku? Bungah rasanya hati ini setiap kali di dekatmu.",
+			  "Pohon, pohon apa yang paling romantis? Pohonaannya sih kita jodoh dunia akhirat ya.",
+			  "Garam, garam apa yang rasanya manis? Garamin aja hidupku dengan senyumanmu setiap pagi.",
+			  "Kasur, kasur apa yang nggak bikin ngantuk? Kasurga bersamamu kelak di masa depan.",
+			  "Panda, panda apa yang bikin baper? Pandangin wajah cantikmu tanpa bosan seharian.",
+			  "Tiang, tiang apa yang enak? Tiang-tiang mikirin kamu sambil senyum-senyum sendiri.",
+			  "Obat, obat apa yang paling manjur? Obat rindu paling ampuh ya cuma ketemu kamu.",
+			  "Mobil, mobil apa yang bikin meleleh? Mobilang I love you langsung di depan matamu.",
+			  "Kucing, kucing apa yang paling romantis? Kucingta kamu sepenuh hati sampai tua nanti.",
+			  "Sabun, sabun apa yang paling wangi? Sabocorin rahasia ya, aku sayang banget sama kamu.",
+			  "Payung, payung apa yang paling teduh? Payungin hatimu dengan kasih sayangku selamanya.",
+			  "Kereta, kereta apa yang nggak pernah berhenti? Keretakan rinduku yang terus melaju menuju hatimu.",
+			  "Cincin, cincin apa yang paling pas? Cincinta sejati yang melingkar di jari manismu nanti.",
+			  "Lampu, lampu apa yang paling terang? Lampui semua hari-hari indah bersama kamu.",
+			  "Suara lembutmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Di setiap musim yang datang dan pergi, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Kenangan kita membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Kebersamaan kita membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Sampai kapan pun waktu berjalan, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Di setiap musim yang datang dan pergi, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Cara kamu tersenyum menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Setiap kali aku memandangmu, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Nama indahmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Hari-hariku bersamamu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Kebaikan hatimu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Setiap detik bersamamu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Tatapan matamu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Ketulusan hatimu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Untuk Nisrina tersayang, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Untuk Nisrina tersayang, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Di hari spesialmu ini, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Saat malam tiba dan bintang bersinar, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Pelukan hangatmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Sapaan hangatmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Mulai hari ini hingga selamanya, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Pesona dirimu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Setiap kali aku memandangmu, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Sejauh apa pun jarak membentang, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Dalam setiap doa yang kulangitkan, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Saat malam tiba dan bintang bersinar, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Pesona dirimu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Dalam setiap doa yang kulangitkan, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Untuk Nisrina tersayang, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Tak peduli seberapa sibuknya dunia, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Dalam setiap doa yang kulangitkan, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Rasa cintamu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Tatapan matamu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Di setiap musim yang datang dan pergi, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Setiap kali aku memandangmu, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Kebaikan hatimu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Ketulusan hatimu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Pesona dirimu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Kebersamaan kita adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Saat malam tiba dan bintang bersinar, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Ketika pagi menyapa dengan hangatnya, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Pesona dirimu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Kasih sayangmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Ketulusan hatimu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Di bawah langit yang sama ini, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Tawa manismu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Saat malam tiba dan bintang bersinar, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Cerita-ceritamu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Dalam setiap hembusan napasku, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Sejauh apa pun jarak membentang, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Nama indahmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Hari-hariku bersamamu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Di antara jutaan kemungkinan di dunia, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Hari-hariku bersamamu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Rasa cintamu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Cara kamu tersenyum adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Mulai hari ini hingga selamanya, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Sampai kapan pun waktu berjalan, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Di bawah langit yang sama ini, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Hari-hariku bersamamu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Untuk Nisrina tersayang, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Dalam setiap doa yang kulangitkan, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Di setiap musim yang datang dan pergi, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Cara kamu tersenyum adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Seiring bertambahnya usiamu hari ini, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Sampai kapan pun waktu berjalan, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Dalam setiap doa yang kulangitkan, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Kasih sayangmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Saat malam tiba dan bintang bersinar, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Kenangan kita bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Sejauh apa pun jarak membentang, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Tatapan matamu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Perhatianmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Di hari spesialmu ini, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Kebaikan hatimu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Rasa cintamu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Saat malam tiba dan bintang bersinar, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Binar matamu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Tatapan matamu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Tawa manismu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Dalam setiap doa yang kulangitkan, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Di antara jutaan kemungkinan di dunia, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Nama indahmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Rasa cintamu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Cara kamu menatapku bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Setiap detik bersamamu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Di hari spesialmu ini, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Dari lubuk hatiku yang paling dalam, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Suara lembutmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Dari lubuk hatiku yang paling dalam, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Meski ribuan hari terus berganti, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Rindu untukmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Di antara jutaan kemungkinan di dunia, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Di bawah langit yang sama ini, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Mulai hari ini hingga selamanya, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Di setiap musim yang datang dan pergi, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Tatapan matamu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Meski ribuan hari terus berganti, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Binar matamu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Tak peduli seberapa sibuknya dunia, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Rasa cintamu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Rindu untukmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Pesona dirimu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Dalam setiap hembusan napasku, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Mulai hari ini hingga selamanya, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Hari-hariku bersamamu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Di antara jutaan kemungkinan di dunia, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Cara kamu tersenyum mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Hari-hariku bersamamu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Sapaan hangatmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Pelukan hangatmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Dari lubuk hatiku yang paling dalam, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Sampai kapan pun waktu berjalan, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Rindu untukmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Cerita-ceritamu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Seiring bertambahnya usiamu hari ini, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Sepanjang perjalanan hidup yang kita lalui, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Dalam setiap doa yang kulangitkan, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Binar matamu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Sampai kapan pun waktu berjalan, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Dalam setiap hembusan napasku, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Ketulusan hatimu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Kenangan kita menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Kenangan kita mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Perhatianmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Tawa manismu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Ketika pagi menyapa dengan hangatnya, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Tak peduli seberapa sibuknya dunia, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Hanya satu hal yang selalu kupastikan, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Wajah cantikmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Pelukan hangatmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Kasih sayangmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Di antara jutaan kemungkinan di dunia, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Suara lembutmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Ketika pagi menyapa dengan hangatnya, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Hanya satu hal yang selalu kupastikan, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Rindu untukmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Tatapan matamu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Setiap detik bersamamu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Di hari spesialmu ini, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Tawa manismu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Mulai hari ini hingga selamanya, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Di bawah langit yang sama ini, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Cara kamu menatapku selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Sapaan hangatmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Di setiap musim yang datang dan pergi, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Dalam setiap hembusan napasku, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Cerita-ceritamu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Dalam setiap doa yang kulangitkan, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Ketika pagi menyapa dengan hangatnya, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Bersama setiap detak jantungku, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Dalam setiap doa yang kulangitkan, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Genggaman tanganmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Pesona dirimu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Rindu untukmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Tatapan matamu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Kenangan kita membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Genggaman tanganmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Kehadiranmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Sejauh apa pun jarak membentang, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Genggaman tanganmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Ketika pagi menyapa dengan hangatnya, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Sejauh apa pun jarak membentang, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Hari-hariku bersamamu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Kenangan kita mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Senyummu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Senyummu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Dalam setiap doa yang kulangitkan, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Hari-hariku bersamamu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Pelukan hangatmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Senyummu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Untuk Nisrina tersayang, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Bersama setiap detak jantungku, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Untuk Nisrina tersayang, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Sejauh apa pun jarak membentang, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Kehadiranmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Dari lubuk hatiku yang paling dalam, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Sapaan hangatmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Pelukan hangatmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Kebersamaan kita adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Di hari spesialmu ini, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Hari-hariku bersamamu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Kenangan kita adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Ketika pagi menyapa dengan hangatnya, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Di hari spesialmu ini, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Nama indahmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Mulai hari ini hingga selamanya, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Tak peduli seberapa sibuknya dunia, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Tatapan matamu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Dalam setiap hembusan napasku, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Seiring bertambahnya usiamu hari ini, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Kebersamaan kita bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Sapaan hangatmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Ketulusan hatimu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Kasih sayangmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Hari-hariku bersamamu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Dari lubuk hatiku yang paling dalam, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Di setiap musim yang datang dan pergi, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Rindu untukmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Hanya satu hal yang selalu kupastikan, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Meski ribuan hari terus berganti, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Cara kamu tersenyum bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Tawa manismu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Sapaan hangatmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Dalam setiap doa yang kulangitkan, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Dalam setiap hembusan napasku, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Kebaikan hatimu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Bersama setiap detak jantungku, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Cerita-ceritamu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Rasa cintamu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Meski ribuan hari terus berganti, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Di hari spesialmu ini, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Di bawah langit yang sama ini, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Sepanjang perjalanan hidup yang kita lalui, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Pesona dirimu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Nama indahmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Tawa manismu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Bersama setiap detak jantungku, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Nama indahmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Cara kamu menatapku menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Sapaan hangatmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Sapaan hangatmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Untuk Nisrina tersayang, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Sepanjang perjalanan hidup yang kita lalui, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Saat malam tiba dan bintang bersinar, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Hanya satu hal yang selalu kupastikan, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Cara kamu menatapku adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Sapaan hangatmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Hari-hariku bersamamu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Di antara jutaan kemungkinan di dunia, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Dari lubuk hatiku yang paling dalam, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Di hari spesialmu ini, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Pesona dirimu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Kasih sayangmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Di setiap musim yang datang dan pergi, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Cara kamu menatapku membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Meski ribuan hari terus berganti, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Senyummu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Kebaikan hatimu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Kasih sayangmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Kenangan kita membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Rasa cintamu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Pesona dirimu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Cerita-ceritamu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Genggaman tanganmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Saat malam tiba dan bintang bersinar, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Hanya satu hal yang selalu kupastikan, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Sampai kapan pun waktu berjalan, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Perhatianmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Wajah cantikmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Suara lembutmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Mulai hari ini hingga selamanya, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Meski ribuan hari terus berganti, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Senyummu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Binar matamu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Kehadiranmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Nama indahmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Untuk Nisrina tersayang, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Dari lubuk hatiku yang paling dalam, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Setiap kali aku memandangmu, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Tawa manismu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Mulai hari ini hingga selamanya, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Cerita-ceritamu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Wajah cantikmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Nama indahmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Rindu untukmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Tatapan matamu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Bersama setiap detak jantungku, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Kasih sayangmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Saat malam tiba dan bintang bersinar, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Di bawah langit yang sama ini, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Ketulusan hatimu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Di hari spesialmu ini, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Wajah cantikmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Wajah cantikmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Di antara jutaan kemungkinan di dunia, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Cerita-ceritamu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Sampai kapan pun waktu berjalan, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Hanya satu hal yang selalu kupastikan, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Tak peduli seberapa sibuknya dunia, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Hari-hariku bersamamu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Cara kamu tersenyum membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Cerita-ceritamu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Kebaikan hatimu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Untuk Nisrina tersayang, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Setiap detik bersamamu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Kehadiranmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Nama indahmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Sejauh apa pun jarak membentang, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Rindu untukmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Seiring bertambahnya usiamu hari ini, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Hanya satu hal yang selalu kupastikan, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Rasa cintamu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Cara kamu menatapku selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Kenangan kita adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Dari lubuk hatiku yang paling dalam, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Bersama setiap detak jantungku, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Tawa manismu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Sampai kapan pun waktu berjalan, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Tak peduli seberapa sibuknya dunia, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Wajah cantikmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Binar matamu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Di antara jutaan kemungkinan di dunia, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Di bawah langit yang sama ini, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Sepanjang perjalanan hidup yang kita lalui, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Setiap detik bersamamu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Genggaman tanganmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Sepanjang perjalanan hidup yang kita lalui, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Tatapan matamu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Meski ribuan hari terus berganti, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Wajah cantikmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Tatapan matamu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Dalam setiap hembusan napasku, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Di bawah langit yang sama ini, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Perhatianmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Perhatianmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Pelukan hangatmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Wajah cantikmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Tawa manismu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Kebaikan hatimu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Kenangan kita bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Cara kamu menatapku membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Kasih sayangmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Tawa manismu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Suara lembutmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Meski ribuan hari terus berganti, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Pesona dirimu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Untuk Nisrina tersayang, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Cerita-ceritamu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Sampai kapan pun waktu berjalan, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Kebaikan hatimu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Pesona dirimu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Ketulusan hatimu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Kebersamaan kita mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Bersama setiap detak jantungku, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Kasih sayangmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Rindu untukmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Setiap detik bersamamu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Genggaman tanganmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Kasih sayangmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Untuk Nisrina tersayang, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Nama indahmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Hanya satu hal yang selalu kupastikan, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Di antara jutaan kemungkinan di dunia, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Sampai kapan pun waktu berjalan, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Ketulusan hatimu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Untuk Nisrina tersayang, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Binar matamu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Kebersamaan kita mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Setiap detik bersamamu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Kasih sayangmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Genggaman tanganmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Seiring bertambahnya usiamu hari ini, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Setiap kali aku memandangmu, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Kebersamaan kita membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Meski ribuan hari terus berganti, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Cara kamu tersenyum tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Kasih sayangmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Kehadiranmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Cerita-ceritamu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Sampai kapan pun waktu berjalan, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Dalam setiap doa yang kulangitkan, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Binar matamu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Pelukan hangatmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Rindu untukmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Kebersamaan kita adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Dalam setiap hembusan napasku, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Dalam setiap hembusan napasku, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Pelukan hangatmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Ketulusan hatimu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Di setiap musim yang datang dan pergi, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Cara kamu menatapku bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Cara kamu menatapku mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Ketika pagi menyapa dengan hangatnya, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Di bawah langit yang sama ini, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Di hari spesialmu ini, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Wajah cantikmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Suara lembutmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Setiap detik bersamamu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Sapaan hangatmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Setiap kali aku memandangmu, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Cara kamu menatapku adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Nama indahmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Hanya satu hal yang selalu kupastikan, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Kebaikan hatimu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Dalam setiap doa yang kulangitkan, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Kebaikan hatimu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Sampai kapan pun waktu berjalan, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Ketika pagi menyapa dengan hangatnya, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Rindu untukmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Rindu untukmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Untuk Nisrina tersayang, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Setiap detik bersamamu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Kenangan kita menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Wajah cantikmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Saat malam tiba dan bintang bersinar, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Senyummu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Saat malam tiba dan bintang bersinar, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Mulai hari ini hingga selamanya, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Ketika pagi menyapa dengan hangatnya, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Dalam setiap hembusan napasku, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Cara kamu menatapku selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Cerita-ceritamu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Rindu untukmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Binar matamu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Pesona dirimu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Tatapan matamu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Bersama setiap detak jantungku, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Sampai kapan pun waktu berjalan, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Genggaman tanganmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Suara lembutmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Cerita-ceritamu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Tak peduli seberapa sibuknya dunia, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Ketika pagi menyapa dengan hangatnya, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Perhatianmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Kebersamaan kita menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Di bawah langit yang sama ini, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Ketika pagi menyapa dengan hangatnya, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Kebaikan hatimu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Di antara jutaan kemungkinan di dunia, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Binar matamu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Setiap kali aku memandangmu, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Perhatianmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Sejauh apa pun jarak membentang, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Seiring bertambahnya usiamu hari ini, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Sapaan hangatmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Di bawah langit yang sama ini, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Pelukan hangatmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Binar matamu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Sepanjang perjalanan hidup yang kita lalui, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Wajah cantikmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Tak peduli seberapa sibuknya dunia, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Untuk Nisrina tersayang, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Ketulusan hatimu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Pelukan hangatmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Sampai kapan pun waktu berjalan, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Genggaman tanganmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Binar matamu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Di hari spesialmu ini, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Ketulusan hatimu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Suara lembutmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Senyummu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Genggaman tanganmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Suara lembutmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Binar matamu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Binar matamu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Setiap kali aku memandangmu, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Kenangan kita bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Wajah cantikmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Kehadiranmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Pesona dirimu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Nama indahmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Di hari spesialmu ini, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Kenangan kita adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Bersama setiap detak jantungku, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Setiap detik bersamamu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Sepanjang perjalanan hidup yang kita lalui, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Sapaan hangatmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Tak peduli seberapa sibuknya dunia, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Pelukan hangatmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Sepanjang perjalanan hidup yang kita lalui, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Pelukan hangatmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Perhatianmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Sapaan hangatmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Kebersamaan kita selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Tatapan matamu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Kenangan kita selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Binar matamu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Kebersamaan kita selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Sapaan hangatmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Kasih sayangmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Dalam setiap doa yang kulangitkan, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Di antara jutaan kemungkinan di dunia, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Mulai hari ini hingga selamanya, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Tak peduli seberapa sibuknya dunia, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Hari-hariku bersamamu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Setiap detik bersamamu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Sapaan hangatmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Rindu untukmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Senyummu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Cara kamu menatapku tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Kehadiranmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Di antara jutaan kemungkinan di dunia, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Pelukan hangatmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Kenangan kita selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Hari-hariku bersamamu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Tatapan matamu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Seiring bertambahnya usiamu hari ini, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Senyummu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Setiap detik bersamamu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Saat malam tiba dan bintang bersinar, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Ketulusan hatimu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Setiap detik bersamamu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Rasa cintamu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Dalam setiap doa yang kulangitkan, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Sejauh apa pun jarak membentang, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Mulai hari ini hingga selamanya, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Cerita-ceritamu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Kehadiranmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Dari lubuk hatiku yang paling dalam, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Dalam setiap hembusan napasku, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Senyummu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Tatapan matamu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Dari lubuk hatiku yang paling dalam, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Rindu untukmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Di antara jutaan kemungkinan di dunia, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Cerita-ceritamu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Mulai hari ini hingga selamanya, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Tawa manismu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Tak peduli seberapa sibuknya dunia, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Ketika pagi menyapa dengan hangatnya, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Untuk Nisrina tersayang, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Genggaman tanganmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Pelukan hangatmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Genggaman tanganmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Setiap detik bersamamu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Cara kamu menatapku membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Mulai hari ini hingga selamanya, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Perhatianmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Perhatianmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Mulai hari ini hingga selamanya, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Wajah cantikmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Perhatianmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Nama indahmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Senyummu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Nama indahmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Bersama setiap detak jantungku, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Sejauh apa pun jarak membentang, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Setiap detik bersamamu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Ketulusan hatimu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Seiring bertambahnya usiamu hari ini, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Tak peduli seberapa sibuknya dunia, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Pelukan hangatmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Dari lubuk hatiku yang paling dalam, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Bersama setiap detak jantungku, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Di hari spesialmu ini, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Hanya satu hal yang selalu kupastikan, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Kehadiranmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Perhatianmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Bersama setiap detak jantungku, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Senyummu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Kehadiranmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Setiap kali aku memandangmu, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Kebersamaan kita membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Nama indahmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Wajah cantikmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Bersama setiap detak jantungku, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Ketika pagi menyapa dengan hangatnya, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Cara kamu tersenyum menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Sejauh apa pun jarak membentang, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Genggaman tanganmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Cara kamu menatapku adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Seiring bertambahnya usiamu hari ini, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Untuk Nisrina tersayang, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Di setiap musim yang datang dan pergi, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Suara lembutmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Tawa manismu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Bersama setiap detak jantungku, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Wajah cantikmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Binar matamu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Cara kamu tersenyum selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Meski ribuan hari terus berganti, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Saat malam tiba dan bintang bersinar, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Sapaan hangatmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Suara lembutmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Untuk Nisrina tersayang, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Sejauh apa pun jarak membentang, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Tak peduli seberapa sibuknya dunia, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Ketika pagi menyapa dengan hangatnya, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Di hari spesialmu ini, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Hari-hariku bersamamu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Dalam setiap hembusan napasku, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Tawa manismu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Cerita-ceritamu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Di bawah langit yang sama ini, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Setiap kali aku memandangmu, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Tak peduli seberapa sibuknya dunia, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Rasa cintamu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Nama indahmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Dalam setiap hembusan napasku, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Kasih sayangmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Hari-hariku bersamamu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Sejauh apa pun jarak membentang, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Di bawah langit yang sama ini, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Setiap detik bersamamu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Kebersamaan kita selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Saat malam tiba dan bintang bersinar, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Pesona dirimu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Senyummu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Seiring bertambahnya usiamu hari ini, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Kebaikan hatimu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Mulai hari ini hingga selamanya, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Seiring bertambahnya usiamu hari ini, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Genggaman tanganmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Hari-hariku bersamamu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Meski ribuan hari terus berganti, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Di bawah langit yang sama ini, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Kebaikan hatimu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Cara kamu tersenyum bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Hanya satu hal yang selalu kupastikan, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Senyummu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Setiap kali aku memandangmu, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Tawa manismu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Di bawah langit yang sama ini, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Sejauh apa pun jarak membentang, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Kenangan kita adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Kehadiranmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Cara kamu tersenyum bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Seiring bertambahnya usiamu hari ini, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Seiring bertambahnya usiamu hari ini, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Sapaan hangatmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Dari lubuk hatiku yang paling dalam, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Kasih sayangmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Di setiap musim yang datang dan pergi, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Tak peduli seberapa sibuknya dunia, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Di bawah langit yang sama ini, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Cara kamu tersenyum membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Perhatianmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Pelukan hangatmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Binar matamu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Kehadiranmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Perhatianmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Tawa manismu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Kebersamaan kita membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Rindu untukmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Di antara jutaan kemungkinan di dunia, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Ketulusan hatimu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Kenangan kita adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Mulai hari ini hingga selamanya, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Suara lembutmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Sapaan hangatmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Binar matamu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Di bawah langit yang sama ini, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Cara kamu tersenyum membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Hari-hariku bersamamu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Sampai kapan pun waktu berjalan, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Sampai kapan pun waktu berjalan, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Wajah cantikmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Di setiap musim yang datang dan pergi, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Genggaman tanganmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Saat malam tiba dan bintang bersinar, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Setiap detik bersamamu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Cara kamu tersenyum membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Untuk Nisrina tersayang, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Tak peduli seberapa sibuknya dunia, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Cerita-ceritamu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Seiring bertambahnya usiamu hari ini, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Kehadiranmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Seiring bertambahnya usiamu hari ini, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Kehadiranmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Meski ribuan hari terus berganti, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Kehadiranmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Senyummu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Di setiap musim yang datang dan pergi, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Di antara jutaan kemungkinan di dunia, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Rasa cintamu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Sejauh apa pun jarak membentang, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Dalam setiap hembusan napasku, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Tatapan matamu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Pelukan hangatmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Dari lubuk hatiku yang paling dalam, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Rasa cintamu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Cara kamu tersenyum adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Wajah cantikmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Kebersamaan kita bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Untuk Nisrina tersayang, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Kenangan kita membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Ketika pagi menyapa dengan hangatnya, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Di setiap musim yang datang dan pergi, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Hanya satu hal yang selalu kupastikan, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Nama indahmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Genggaman tanganmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Ketika pagi menyapa dengan hangatnya, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Bersama setiap detak jantungku, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Rindu untukmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Di bawah langit yang sama ini, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Setiap kali aku memandangmu, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Bersama setiap detak jantungku, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Kebaikan hatimu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Sejauh apa pun jarak membentang, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Hari-hariku bersamamu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Di antara jutaan kemungkinan di dunia, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Wajah cantikmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Wajah cantikmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Setiap kali aku memandangmu, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Kehadiranmu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Hari-hariku bersamamu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Suara lembutmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Sepanjang perjalanan hidup yang kita lalui, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Bersama setiap detak jantungku, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Cara kamu tersenyum mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Tawa manismu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Cara kamu tersenyum selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Nama indahmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Ketulusan hatimu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Tak peduli seberapa sibuknya dunia, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Senyummu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Di hari spesialmu ini, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Cerita-ceritamu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Dalam setiap hembusan napasku, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Senyummu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Setiap kali aku memandangmu, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Setiap kali aku memandangmu, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Kebaikan hatimu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Pesona dirimu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Dari lubuk hatiku yang paling dalam, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Di setiap musim yang datang dan pergi, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Dalam setiap doa yang kulangitkan, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Dalam setiap doa yang kulangitkan, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Hanya satu hal yang selalu kupastikan, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Nama indahmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Meski ribuan hari terus berganti, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Perhatianmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Di hari spesialmu ini, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Sapaan hangatmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Di hari spesialmu ini, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Bersama setiap detak jantungku, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Senyummu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Dalam setiap doa yang kulangitkan, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Kebaikan hatimu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Kenangan kita selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Hanya satu hal yang selalu kupastikan, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Mulai hari ini hingga selamanya, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Meski ribuan hari terus berganti, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Dalam setiap doa yang kulangitkan, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Sepanjang perjalanan hidup yang kita lalui, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Saat malam tiba dan bintang bersinar, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Perhatianmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Seiring bertambahnya usiamu hari ini, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Senyummu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Sejauh apa pun jarak membentang, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Cara kamu tersenyum adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Setiap kali aku memandangmu, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Kebersamaan kita tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Dari lubuk hatiku yang paling dalam, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Pesona dirimu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Pesona dirimu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Kehadiranmu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Dalam setiap hembusan napasku, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Mulai hari ini hingga selamanya, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Saat malam tiba dan bintang bersinar, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Di setiap musim yang datang dan pergi, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Meski ribuan hari terus berganti, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Kasih sayangmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Perhatianmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Tawa manismu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Suara lembutmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Di hari spesialmu ini, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Untuk Nisrina tersayang, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Kasih sayangmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Seiring bertambahnya usiamu hari ini, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Binar matamu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Sampai kapan pun waktu berjalan, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Rindu untukmu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Sampai kapan pun waktu berjalan, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Cara kamu menatapku bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Setiap kali aku memandangmu, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Di setiap musim yang datang dan pergi, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Bersama setiap detak jantungku, aku ingin terus menggenggam tanganmu melewati suka dan duka.",
+			  "Cara kamu tersenyum selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Hanya satu hal yang selalu kupastikan, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Cara kamu menatapku menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Kasih sayangmu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Kebersamaan kita bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Meski ribuan hari terus berganti, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Binar matamu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Di hari spesialmu ini, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Di antara jutaan kemungkinan di dunia, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Genggaman tanganmu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Cerita-ceritamu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Tak peduli seberapa sibuknya dunia, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Sampai kapan pun waktu berjalan, aku berjanji akan selalu mencintaimu lebih dari hari kemarin.",
+			  "Genggaman tanganmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Kehadiranmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Cara kamu menatapku membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Binar matamu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Cerita-ceritamu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Hanya satu hal yang selalu kupastikan, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Rasa cintamu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Tawa manismu adalah jawaban dari setiap doa yang kupanjatkan di sepertiga malam.",
+			  "Seiring bertambahnya usiamu hari ini, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Cerita-ceritamu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Ketika pagi menyapa dengan hangatnya, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Rasa cintamu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Sejauh apa pun jarak membentang, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Ketika pagi menyapa dengan hangatnya, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Meski ribuan hari terus berganti, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Cara kamu menatapku mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Pesona dirimu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Kebersamaan kita adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Kebaikan hatimu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Hanya satu hal yang selalu kupastikan, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Dari lubuk hatiku yang paling dalam, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Setiap kali aku memandangmu, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Kebaikan hatimu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Dalam setiap doa yang kulangitkan, semoga segala harapan baikmu segera terwujud dengan indah.",
+			  "Di bawah langit yang sama ini, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Kehadiranmu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Di antara jutaan kemungkinan di dunia, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Saat malam tiba dan bintang bersinar, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Di setiap musim yang datang dan pergi, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Cara kamu menatapku adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Saat malam tiba dan bintang bersinar, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Genggaman tanganmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Ketulusan hatimu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Ketulusan hatimu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Kebaikan hatimu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Ketulusan hatimu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Meski ribuan hari terus berganti, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Kebersamaan kita menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Mulai hari ini hingga selamanya, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Mulai hari ini hingga selamanya, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Perhatianmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Di setiap musim yang datang dan pergi, cintaku untukmu akan selalu hangat seperti matahari pagi.",
+			  "Suara lembutmu adalah alasan kenapa duniaku terasa begitu penuh warna.",
+			  "Setiap detik bersamamu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Seiring bertambahnya usiamu hari ini, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Rasa cintamu adalah puisi paling indah yang tak selesai ditulis dengan kata-kata.",
+			  "Di antara jutaan kemungkinan di dunia, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Tawa manismu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Kehadiranmu menjadi cahaya paling terang di setiap langkah perjalanan hidupku.",
+			  "Tak peduli seberapa sibuknya dunia, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Sapaan hangatmu mengisi setiap ruang kosong di hatiku dengan kehangatan yang sempurna.",
+			  "Sampai kapan pun waktu berjalan, aku akan selalu ada di sampingmu untuk mendukung setiap mimpimu.",
+			  "Ketulusan hatimu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Di bawah langit yang sama ini, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Meski ribuan hari terus berganti, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Nama indahmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Sejauh apa pun jarak membentang, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Suara lembutmu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Pesona dirimu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Wajah cantikmu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Setiap kali aku memandangmu, aku ingin menjadi alasan di balik setiap tawa bahagiamu.",
+			  "Kebersamaan kita adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Dari lubuk hatiku yang paling dalam, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Tawa manismu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Sepanjang perjalanan hidup yang kita lalui, cintaku padamu akan terus tumbuh mekar seperti bunga di musim semi.",
+			  "Cara kamu menatapku adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Dalam setiap hembusan napasku, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Pelukan hangatmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Ketulusan hatimu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Suara lembutmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Pesona dirimu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Suara lembutmu membuatku ingin menjadi seseorang yang lebih baik setiap harinya.",
+			  "Hanya satu hal yang selalu kupastikan, tidak ada hal yang lebih membahagiakan selain melihatmu tersenyum.",
+			  "Pelukan hangatmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Seiring bertambahnya usiamu hari ini, hatiku tetap memilihmu sebagai satu-satunya tempat berlabuh.",
+			  "Rasa cintamu selalu berhasil membuat hatiku jatuh cinta lagi dari awal.",
+			  "Kasih sayangmu tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Di setiap musim yang datang dan pergi, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Pelukan hangatmu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Hanya satu hal yang selalu kupastikan, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Ketika pagi menyapa dengan hangatnya, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Kebaikan hatimu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Sepanjang perjalanan hidup yang kita lalui, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Bersama setiap detak jantungku, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Senyummu mengajarkanku arti kebahagiaan yang sesungguhnya tanpa syarat.",
+			  "Sepanjang perjalanan hidup yang kita lalui, hanya namamu yang selalu terukir indah di dalam relung hatiku.",
+			  "Setiap detik bersamamu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Dalam setiap hembusan napasku, kamu akan selalu menjadi prioritas utama dalam kebahagiaanku.",
+			  "Kenangan kita tak pernah gagal menghadirkan senyum di wajahku kapan saja.",
+			  "Rasa cintamu selalu mampu menenangkan badai di dalam pikiranku.",
+			  "Rindu untukmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Hanya satu hal yang selalu kupastikan, aku bersyukur kepada Tuhan karena telah mempertemukan aku denganmu.",
+			  "Ketika pagi menyapa dengan hangatnya, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Di antara jutaan kemungkinan di dunia, aku selalu berdoa agar senyum indahmu tak pernah pudar.",
+			  "Tak peduli seberapa sibuknya dunia, seluruh rinduku hanya tertuju pada satu nama, yaitu kamu.",
+			  "Genggaman tanganmu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Sejauh apa pun jarak membentang, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Tatapan matamu adalah anugerah terindah yang tak akan pernah berhenti kusyukuri.",
+			  "Dalam setiap hembusan napasku, kasih sayangku akan selalu menjagamu dalam setiap keadaan.",
+			  "Di hari spesialmu ini, aku jatuh cinta padamu bukan hanya karena siapa kamu, tapi karena betapa bahagianya aku saat bersamamu.",
+			  "Rasa cintamu membuatku yakin bahwa masa depan terindah adalah masa depan bersamamu.",
+			  "Rasa cintamu membuatku percaya bahwa cinta sejati itu benar-benar nyata.",
+			  "Suara lembutmu bagaikan melodi lembut yang selalu terngiang indah di telingaku.",
+			  "Tatapan matamu adalah candu paling manis yang tak ingin pernah kusembuhkan.",
+			  "Tatapan matamu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Rindu untukmu selalu sukses bikin jantungku berdebar seperti pertama kali bertemu.",
+			  "Dalam setiap hembusan napasku, rasa sayangku padamu tak akan pernah berkurang sedikit pun.",
+			  "Suara lembutmu bikin aku lupa caranya bersedih karena terlalu sibuk bahagia.",
+			  "Setiap kali aku memandangmu, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Dari lubuk hatiku yang paling dalam, kamu adalah rumah tempat hatiku selalu ingin kembali.",
+			  "Saat malam tiba dan bintang bersinar, kamu tetaplah bidadari paling cantik yang pernah hadir di hidupku.",
+			  "Perhatianmu menjadi tempat pulang paling nyaman setelah seharian lelah beraktivitas.",
+			  "Dari lubuk hatiku yang paling dalam, aku ingin merayakan ratusan kebahagiaan lainnya hanya bersamamu.",
+			  "Kasih sayangmu bagaikan pelangi indah yang menghapus semua mendung di hatiku.",
+			  "Rasa cintamu membuat waktu terasa berjalan begitu cepat saat kita berdua.",
+			  "Cara kamu tersenyum adalah candu paling manis yang tak ingin pernah kusembuhkan."
+			];
+			setInterval(randomQuote, 10000);
+			function randomQuote(){
+			  let random = quotes[Math.floor(Math.random() * quotes.length)];
+			  quotation.innerText = `"${random}"`;
+			  source.innerText = "";
+			}
+
+			var i = 0;
+			var j = 0;
+			var speed = 50;
+			
+			function typeWriter() {
+				if (i < txt.length) {
+					var o = (i/txt.length*2);
+					var o = o.toFixed(0);
+					var o2 = o-1;
+					if (o2<0)
+						o2=0;
+					var o3 = String(o);
+					var p = "translate(-50%,50%) scale("+o2+")";
+					document.getElementById("quote").innerHTML += txt.charAt(i);
+					i++;
+					$(".jam").css("opacity",o3);
+					$(".bulat").css("transform",p).css("opacity",o2);
+					setTimeout(typeWriter, speed);
+				} else if (j < subTxt.length) {
+					document.getElementById("subquote").innerHTML += subTxt.charAt(j);
+					j++;
+					setTimeout(typeWriter, speed);
+				}
+			}
+			typeWriter();
+		</script>
+	</body>
+</html>
