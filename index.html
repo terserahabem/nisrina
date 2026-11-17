@@ -620,6 +620,80 @@
 				<button type="button" class="btn btn-sm btn-danger btn-block"
 					onclick="document.getElementById('inputFotoGaleri').click()">+ Tambah Foto</button>
 			</div>
+
+			<script>
+  // Mengambil foto dari database dan menampilkannya di galeri
+  async function muatGaleri() {
+    const grid = document.getElementById('galeriGrid');
+    try {
+      const res = await fetch('/api/photos');
+      if (!res.ok) throw new Error('gagal');
+      const foto = await res.json();
+      grid.innerHTML = '';
+      for (const f of foto) {
+        const img = document.createElement('img');
+        img.src = f.url;
+        img.loading = 'lazy';
+        img.style.width = '100%';
+        grid.appendChild(img);
+      }
+    } catch (err) {
+      grid.textContent = 'Gagal memuat foto.';
+    }
+  }
+
+  // Mengecilkan foto di browser supaya di bawah batas 4,5 MB
+  function kecilkan(file, maxSisi = 1600, kualitas = 0.85) {
+    return new Promise((resolve, reject) => {
+      const url = URL.createObjectURL(file);
+      const img = new Image();
+      img.onload = () => {
+        const skala = Math.min(1, maxSisi / Math.max(img.width, img.height));
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.round(img.width * skala);
+        canvas.height = Math.round(img.height * skala);
+        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+        URL.revokeObjectURL(url);
+        canvas.toBlob(
+          (b) => (b ? resolve(b) : reject(new Error('gagal'))),
+          'image/jpeg',
+          kualitas
+        );
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error('Bukan gambar yang valid'));
+      };
+      img.src = url;
+    });
+  }
+
+  // Saat foto dipilih: kecilkan, unggah satu per satu, lalu muat ulang galeri
+  document.getElementById('inputFotoGaleri').addEventListener('change', async (e) => {
+    const files = Array.from(e.target.files);
+    let gagal = 0;
+    for (const file of files) {
+      try {
+        const blob = await kecilkan(file);
+        const nama = file.name.replace(/\.\w+$/, '') + '.jpg';
+        const res = await fetch('/api/photos?filename=' + encodeURIComponent(nama), {
+          method: 'POST',
+          headers: { 'Content-Type': 'image/jpeg' },
+          body: blob
+        });
+        if (!res.ok) gagal++;
+      } catch (err) {
+        gagal++;
+      }
+    }
+    e.target.value = '';
+    if (gagal) alert(gagal + ' foto gagal diunggah.');
+    muatGaleri();
+  });
+
+  muatGaleri();
+</script>
+			
 		</div>
 		<div id="isi-lagu">
 			<div class="galeri-header">Musik Romantis 🎵</div>
