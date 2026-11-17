@@ -2492,6 +2492,52 @@
 		}
 		typeWriter();
 	</script>
+
+<h1>Galeri</h1>
+<form id="photo-form">
+  <input type="file" id="file" accept="image/jpeg,image/png,image/webp" required>
+  <button>Unggah</button>
+</form>
+<p id="status"></p>
+<div id="gallery"></div>
+
+<script>
+  async function loadPhotos() {
+    const res = await fetch('/api/photos');
+    const photos = await res.json();
+    const gallery = document.getElementById('gallery');
+    gallery.innerHTML = '';
+    for (const p of photos) {
+      const img = document.createElement('img');
+      img.src = p.url;
+      img.style.maxWidth = '200px';
+      img.style.margin = '4px';
+      gallery.appendChild(img);
+    }
+  }
+
+  document.getElementById('photo-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const file = document.getElementById('file').files[0];
+    const status = document.getElementById('status');
+    if (file.size > 4 * 1024 * 1024) {
+      status.textContent = 'Ukuran foto maksimal 4 MB.';
+      return;
+    }
+    status.textContent = 'Mengunggah...';
+    const res = await fetch('/api/photos?filename=' + encodeURIComponent(file.name), {
+      method: 'POST',
+      headers: { 'Content-Type': file.type },
+      body: file
+    });
+    status.textContent = res.ok ? 'Berhasil!' : 'Gagal mengunggah.';
+    e.target.reset();
+    loadPhotos();
+  });
+
+  loadPhotos();
+</script>
+	
 </body>
 
 </html>
