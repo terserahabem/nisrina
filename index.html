@@ -153,31 +153,12 @@
 			transition: transform 0.3s ease, border-color 0.5s ease;
 		}
 
-		.panah2 {
-			content: '';
-			width: 20px;
-			height: 20px;
-			position: absolute;
-			top: 120px;
-			right: -30px;
-			border: 5px solid white;
-			border-bottom: none;
-			border-left: none;
-			border-radius: 5px;
-			border-top-left-radius: 3px;
-			border-bottom-right-radius: 3px;
-			transform: rotate(45deg);
-			z-index: 50;
-			cursor: pointer;
-			transition: transform 0.3s ease, border-color 0.5s ease;
-		}
-
 		.panah3 {
 			content: '';
 			width: 20px;
 			height: 20px;
 			position: absolute;
-			top: 165px;
+			top: 120px;
 			right: -30px;
 			border: 5px solid white;
 			border-bottom: none;
@@ -260,13 +241,6 @@
 			font-weight: bold;
 		}
 
-		#isi-galeri {
-			display: none;
-			max-height: 75vh;
-			overflow-y: auto;
-			padding-right: 4px;
-		}
-
 		.galeri-header {
 			font-weight: bold;
 			font-size: 14pt;
@@ -282,104 +256,9 @@
 			margin-bottom: 12px;
 		}
 
-		.galeri-grid {
-			display: grid;
-			grid-template-columns: repeat(2, 1fr);
-			gap: 10px;
-		}
-
-		.galeri-item {
-			background: #f8f9fa;
-			border: 1px solid #e2e6ea;
-			border-radius: 8px;
-			padding: 6px;
-			text-align: center;
-			cursor: pointer;
-			transition: transform 0.2s ease, box-shadow 0.2s ease;
-			position: relative;
-		}
-
-		.galeri-item:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-		}
-
-		.galeri-item img {
-			width: 100%;
-			height: 110px;
-			object-fit: cover;
-			border-radius: 5px;
-			background: #eee;
-		}
-
-		.galeri-caption {
-			font-size: 8.5pt;
-			color: #444;
-			margin-top: 5px;
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-
 		.galeri-actions {
 			margin-top: 12px;
 			text-align: center;
-		}
-
-		.hapus-foto {
-			position: absolute;
-			top: 8px;
-			right: 8px;
-			background: rgba(220, 53, 69, 0.85);
-			color: #fff;
-			border: none;
-			border-radius: 50%;
-			width: 20px;
-			height: 20px;
-			font-size: 11px;
-			line-height: 18px;
-			cursor: pointer;
-			padding: 0;
-		}
-
-		.lightbox-overlay {
-			display: none;
-			position: fixed;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			background: rgba(0, 0, 0, 0.85);
-			z-index: 9999;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			padding: 20px;
-		}
-
-		.lightbox-overlay img {
-			max-width: 90%;
-			max-height: 80vh;
-			border-radius: 10px;
-			border: 4px solid #fff;
-			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-		}
-
-		.lightbox-caption {
-			color: #fff;
-			margin-top: 12px;
-			font-size: 13pt;
-			text-align: center;
-		}
-
-		.lightbox-close {
-			position: absolute;
-			top: 20px;
-			right: 30px;
-			color: #fff;
-			font-size: 30pt;
-			cursor: pointer;
-			line-height: 1;
 		}
 
 		.kotak {
@@ -571,7 +450,6 @@
 <body onload="init_auto()">
 	<div class="kontrol">
 		<div class="panah" title="Tema"></div>
-		<div class="panah2" title="Kita Abadi"></div>
 		<div class="panah3" title="Pemutar Lagu Romantis"></div>
 		<div id="isi-tema">
 			<div class="custom-control custom-radio">
@@ -611,90 +489,6 @@
 				<label class="custom-control-label" for="customRadio8">Midnight</label>
 			</div>
 		</div>
-		<div id="isi-galeri">
-			<div class="galeri-header">Kita Abadi</div>
-			<div class="galeri-sub">Nisrina Irawanto ❤️</div>
-			<div class="galeri-grid" id="galeriGrid"></div>
-			<div class="galeri-actions">
-				<input type="file" id="inputFotoGaleri" accept="image/*" multiple style="display:none">
-				<button type="button" class="btn btn-sm btn-danger btn-block"
-					onclick="document.getElementById('inputFotoGaleri').click()">+ Tambah Foto</button>
-			</div>
-
-			<script>
-  // Mengambil foto dari database dan menampilkannya di galeri
-  async function muatGaleri() {
-    const grid = document.getElementById('galeriGrid');
-    try {
-      const res = await fetch('/api/photos');
-      if (!res.ok) throw new Error('gagal');
-      const foto = await res.json();
-      grid.innerHTML = '';
-      for (const f of foto) {
-        const img = document.createElement('img');
-        img.src = f.url;
-        img.loading = 'lazy';
-        img.style.width = '100%';
-        grid.appendChild(img);
-      }
-    } catch (err) {
-      grid.textContent = 'Gagal memuat foto.';
-    }
-  }
-
-  // Mengecilkan foto di browser supaya di bawah batas 4,5 MB
-  function kecilkan(file, maxSisi = 1600, kualitas = 0.85) {
-    return new Promise((resolve, reject) => {
-      const url = URL.createObjectURL(file);
-      const img = new Image();
-      img.onload = () => {
-        const skala = Math.min(1, maxSisi / Math.max(img.width, img.height));
-        const canvas = document.createElement('canvas');
-        canvas.width = Math.round(img.width * skala);
-        canvas.height = Math.round(img.height * skala);
-        canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
-        URL.revokeObjectURL(url);
-        canvas.toBlob(
-          (b) => (b ? resolve(b) : reject(new Error('gagal'))),
-          'image/jpeg',
-          kualitas
-        );
-      };
-      img.onerror = () => {
-        URL.revokeObjectURL(url);
-        reject(new Error('Bukan gambar yang valid'));
-      };
-      img.src = url;
-    });
-  }
-
-  // Saat foto dipilih: kecilkan, unggah satu per satu, lalu muat ulang galeri
-  document.getElementById('inputFotoGaleri').addEventListener('change', async (e) => {
-    const files = Array.from(e.target.files);
-    let gagal = 0;
-    for (const file of files) {
-      try {
-        const blob = await kecilkan(file);
-        const nama = file.name.replace(/\.\w+$/, '') + '.jpg';
-        const res = await fetch('/api/photos?filename=' + encodeURIComponent(nama), {
-          method: 'POST',
-          headers: { 'Content-Type': 'image/jpeg' },
-          body: blob
-        });
-        if (!res.ok) gagal++;
-      } catch (err) {
-        gagal++;
-      }
-    }
-    e.target.value = '';
-    if (gagal) alert(gagal + ' foto gagal diunggah.');
-    muatGaleri();
-  });
-
-  muatGaleri();
-</script>
-			
-		</div>
 		<div id="isi-lagu">
 			<div class="galeri-header">Musik Romantis 🎵</div>
 			<div class="galeri-sub">Lagu Spesial Untuk Nisrina</div>
@@ -717,11 +511,6 @@
 					onclick="document.getElementById('inputFileLagu').click()">+ Tambah Lagu (MP3)</button>
 			</div>
 		</div>
-	</div>
-	<div class="lightbox-overlay" id="lightboxModal" onclick="tutupLightbox(event)">
-		<span class="lightbox-close" onclick="tutupLightbox(event)">&times;</span>
-		<img id="lightboxImg" src="" alt="Foto Nisrina">
-		<div class="lightbox-caption" id="lightboxCaption"></div>
 	</div>
 	<div class="bg ubuntu"></div>
 	<div class="bg dawn"></div>
@@ -764,11 +553,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
 		gaming = false;
-		panelAktif = null; // null, 'tema', 'galeri', atau 'lagu'
+		panelAktif = null; // null, 'tema', atau 'lagu'
 
 		function tutupPanel() {
 			var lebar = $(".kontrol").outerWidth();
-			$(".panah, .panah2, .panah3").css("transform", "rotate(45deg)");
+			$(".panah, .panah3").css("transform", "rotate(45deg)");
 			$(".kontrol").stop().animate({ left: (-lebar - 20) + "px" }, 300);
 			panelAktif = null;
 		}
@@ -777,36 +566,16 @@
 			e.stopPropagation();
 			if (panelAktif !== 'tema') {
 				var wasClosed = (panelAktif === null);
-				$("#isi-galeri, #isi-lagu").hide();
+				$("#isi-lagu").hide();
 				$("#isi-tema").show();
 				$(".kontrol").css("width", "200px");
 				if (wasClosed) {
 					$(".kontrol").css("left", "-220px");
 				}
 				$(".panah").css("transform", "rotate(225deg)");
-				$(".panah2, .panah3").css("transform", "rotate(45deg)");
+				$(".panah3").css("transform", "rotate(45deg)");
 				$(".kontrol").stop().animate({ left: "0px" }, 300);
 				panelAktif = 'tema';
-			} else {
-				tutupPanel();
-			}
-		});
-
-		$(".panah2").click(function (e) {
-			e.stopPropagation();
-			if (panelAktif !== 'galeri') {
-				var wasClosed = (panelAktif === null);
-				$("#isi-tema, #isi-lagu").hide();
-				$("#isi-galeri").show();
-				var targetWidth = Math.min(340, $(window).width() - 70);
-				$(".kontrol").css("width", targetWidth + "px");
-				if (wasClosed) {
-					$(".kontrol").css("left", (-targetWidth - 20) + "px");
-				}
-				$(".panah2").css("transform", "rotate(225deg)");
-				$(".panah, .panah3").css("transform", "rotate(45deg)");
-				$(".kontrol").stop().animate({ left: "0px" }, 300);
-				panelAktif = 'galeri';
 			} else {
 				tutupPanel();
 			}
@@ -816,7 +585,7 @@
 			e.stopPropagation();
 			if (panelAktif !== 'lagu') {
 				var wasClosed = (panelAktif === null);
-				$("#isi-tema, #isi-galeri").hide();
+				$("#isi-tema").hide();
 				$("#isi-lagu").show();
 				var targetWidth = Math.min(300, $(window).width() - 70);
 				$(".kontrol").css("width", targetWidth + "px");
@@ -824,7 +593,7 @@
 					$(".kontrol").css("left", (-targetWidth - 20) + "px");
 				}
 				$(".panah3").css("transform", "rotate(225deg)");
-				$(".panah, .panah2").css("transform", "rotate(45deg)");
+				$(".panah").css("transform", "rotate(45deg)");
 				$(".kontrol").stop().animate({ left: "0px" }, 300);
 				panelAktif = 'lagu';
 			} else {
@@ -1058,124 +827,6 @@
 				document.removeEventListener(evt, onFirstGesture);
 			}, { once: true });
 		});
-
-		// Galeri Kita Abadi Default & Custom
-		var defaultFotos = [
-			{ src: "image1.jpg", caption: "Selamat Ulang Tahun" },
-			{ src: "image2.jpg", caption: "Senyum Manismu" },
-			{ src: "image3.jpg", caption: "Bahagia Selalu" },
-			{ src: "image4.jpg", caption: "Kesayangan Aku" },
-			{ src: "image5.jpg", caption: "Momen Indah" },
-			{ src: "image6.jpg", caption: "Aku Mencintaimu Selalu" }
-		];
-
-		function buatPlaceholderSVG(teks) {
-			var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="300" height="240" viewBox="0 0 300 240">' +
-				'<defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">' +
-				'<stop offset="0%" stop-color="#ff9a9e"/><stop offset="100%" stop-color="#fecfef"/></linearGradient></defs>' +
-				'<rect width="300" height="240" fill="url(#g)"/>' +
-				'<text x="150" y="105" font-family="sans-serif" font-size="42" text-anchor="middle" fill="#fff">❤️</text>' +
-				'<text x="150" y="145" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#fff">' + teks + '</text>' +
-				'</svg>';
-			return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
-		}
-
-		function ambilFotoTersimpan() {
-			try {
-				var data = localStorage.getItem("galeri_nisrina_fotos");
-				return data ? JSON.parse(data) : [];
-			} catch (e) {
-				return [];
-			}
-		}
-
-		function simpanFotoTersimpan(list) {
-			try {
-				localStorage.setItem("galeri_nisrina_fotos", JSON.stringify(list));
-			} catch (e) { }
-		}
-
-		function renderGaleri() {
-			var grid = document.getElementById("galeriGrid");
-			grid.innerHTML = "";
-			var customFotos = ambilFotoTersimpan();
-			// Urutan: 6 foto default (image1.jpg - image6.jpg) di atas, lalu foto tambahan muncul di bawah kiri, bawah kanan, dst.
-			var semuaFoto = defaultFotos.concat(customFotos);
-
-			semuaFoto.forEach(function (item, idx) {
-				var div = document.createElement("div");
-				div.className = "galeri-item";
-				var img = document.createElement("img");
-				img.src = item.src;
-				img.alt = item.caption;
-				img.onerror = function () {
-					this.onerror = null;
-					this.src = buatPlaceholderSVG(item.caption);
-				};
-				img.onclick = function () {
-					bukaLightbox(this.src, item.caption);
-				};
-				var cap = document.createElement("div");
-				cap.className = "galeri-caption";
-				cap.innerText = item.caption;
-
-				div.appendChild(img);
-				div.appendChild(cap);
-
-				var customIdx = idx - defaultFotos.length;
-				if (customIdx >= 0) {
-					var btnHapus = document.createElement("button");
-					btnHapus.className = "hapus-foto";
-					btnHapus.innerHTML = "&times;";
-					btnHapus.title = "Hapus foto";
-					btnHapus.onclick = function (ev) {
-						ev.stopPropagation();
-						customFotos.splice(customIdx, 1);
-						simpanFotoTersimpan(customFotos);
-						renderGaleri();
-					};
-					div.appendChild(btnHapus);
-				}
-				grid.appendChild(div);
-			});
-		}
-
-		document.getElementById("inputFotoGaleri").addEventListener("change", function (e) {
-			var files = e.target.files;
-			if (!files || !files.length) return;
-			var customFotos = ambilFotoTersimpan();
-			Array.from(files).forEach(function (file) {
-				var reader = new FileReader();
-				reader.onload = function (ev) {
-					customFotos.push({
-						src: ev.target.result,
-						caption: file.name.replace(/\.[^/.]+$/, "")
-					});
-					simpanFotoTersimpan(customFotos);
-					renderGaleri();
-					var panelGaleri = document.getElementById("isi-galeri");
-					if (panelGaleri) {
-						panelGaleri.scrollTop = panelGaleri.scrollHeight;
-					}
-				};
-				reader.readAsDataURL(file);
-			});
-			e.target.value = "";
-		});
-
-		function bukaLightbox(src, caption) {
-			document.getElementById("lightboxImg").src = src;
-			document.getElementById("lightboxCaption").innerText = caption || "";
-			document.getElementById("lightboxModal").style.display = "flex";
-		}
-
-		function tutupLightbox(e) {
-			if (e.target.id === "lightboxModal" || e.target.className === "lightbox-close") {
-				document.getElementById("lightboxModal").style.display = "none";
-			}
-		}
-
-		renderGaleri();
 
 		auto = true;
 		cek = false;
@@ -1417,7 +1068,7 @@
 			$(".quotes").css("text-shadow", "0px 0px 10px #FFF");
 			$(".bulat span").css("border-color", "#000");
 			$(".kotak li").css("background", "#000");
-			$(".panah, .panah2, .panah3").css("border-color", "#000");
+			$(".panah, .panah3").css("border-color", "#000");
 		}
 		function fillblack() {
 			$(".bulat span").css("background", "#000");
@@ -1432,7 +1083,7 @@
 			$(".quotes").css("text-shadow", "0px 0px 10px #000");
 			$(".bulat span").css("border-color", "#FFF");
 			$(".kotak li").css("background", "#FFF");
-			$(".panah, .panah2, .panah3").css("border-color", "#FFF");
+			$(".panah, .panah3").css("border-color", "#FFF");
 		}
 		function debug() {
 			console.log(auto);
