@@ -505,11 +505,6 @@
 				</div>
 			</div>
 			<div class="lagu-list" id="daftarLagu"></div>
-			<div class="galeri-actions">
-				<input type="file" id="inputFileLagu" accept="audio/*" multiple style="display:none">
-				<button type="button" class="btn btn-sm btn-outline-danger btn-block"
-					onclick="document.getElementById('inputFileLagu').click()">+ Tambah Lagu (MP3)</button>
-			</div>
 		</div>
 	</div>
 	<div class="bg ubuntu"></div>
@@ -800,21 +795,6 @@
 			indexLaguAktif = idx;
 			playLagu();
 		}
-
-		document.getElementById("inputFileLagu").addEventListener("change", function (e) {
-			var files = e.target.files;
-			if (!files || !files.length) return;
-			Array.from(files).forEach(function (file) {
-				var url = URL.createObjectURL(file);
-				daftarLaguRomantis.push({
-					judul: (daftarLaguRomantis.length + 1) + ". " + file.name.replace(/\.[^/.]+$/, ""),
-					tipe: "mp3",
-					src: url
-				});
-			});
-			pilihLagu(daftarLaguRomantis.length - 1);
-			e.target.value = "";
-		});
 
 		// Autoplay saat buka web + fallback otomatis pada interaksi pertama jika browser menunda AudioContext
 		updateUILagu();
