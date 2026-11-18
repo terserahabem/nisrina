@@ -172,6 +172,25 @@
 			transition: transform 0.3s ease, border-color 0.5s ease;
 		}
 
+				.panahLink {
+			content: '';
+			width: 20px;
+			height: 20px;
+			position: absolute;
+			top: 165px;
+			right: -30px;
+			border: 5px solid white;
+			border-bottom: none;
+			border-left: none;
+			border-radius: 5px;
+			border-top-left-radius: 3px;
+			border-bottom-right-radius: 3px;
+			transform: rotate(45deg);
+			z-index: 50;
+			cursor: pointer;
+			transition: transform 0.3s ease, border-color 0.5s ease;
+		}
+
 		#isi-lagu {
 			display: none;
 		}
@@ -451,6 +470,7 @@
 	<div class="kontrol">
 		<div class="panah" title="Tema"></div>
 		<div class="panah3" title="Pemutar Lagu Romantis"></div>
+		<div class="panahLink" title="Buka Galeri Foto dan Catatan"></div>
 		<div id="isi-tema">
 			<div class="custom-control custom-radio">
 				<input type="radio" class="custom-control-input" id="customRadio0" name="example1" checked>
@@ -594,6 +614,12 @@
 			} else {
 				tutupPanel();
 			}
+		});
+
+		// Panah ketiga: membuka halaman baru
+		$(".panahLink").click(function (e) {
+			e.stopPropagation();
+			window.location.href = "https://belajar-button-upload-foto.vercel.app/";
 		});
 
 		// ================= PEMUTAR LAGU ROMANTIS (AUTOPLAY + PLAY/STOP/NEXT) =================
@@ -1048,7 +1074,7 @@
 			$(".quotes").css("text-shadow", "0px 0px 10px #FFF");
 			$(".bulat span").css("border-color", "#000");
 			$(".kotak li").css("background", "#000");
-			$(".panah, .panah3").css("border-color", "#000");
+			$(".panah, .panah3, .panahLink").css("border-color", "#000");
 		}
 		function fillblack() {
 			$(".bulat span").css("background", "#000");
@@ -1063,7 +1089,7 @@
 			$(".quotes").css("text-shadow", "0px 0px 10px #000");
 			$(".bulat span").css("border-color", "#FFF");
 			$(".kotak li").css("background", "#FFF");
-			$(".panah, .panah3").css("border-color", "#FFF");
+			$(".panah, .panah3, .panahLink").css("border-color", "#FFF");
 		}
 		function debug() {
 			console.log(auto);
@@ -2168,35 +2194,4 @@
 		function randomQuote() {
 			let random = quotes[Math.floor(Math.random() * quotes.length)];
 			quotation.innerText = `"${random}"`;
-			source.innerText = "";
-		}
-
-		var i = 0;
-		var j = 0;
-		var speed = 50;
-
-		function typeWriter() {
-			if (i < txt.length) {
-				var o = (i / txt.length * 2);
-				var o = o.toFixed(0);
-				var o2 = o - 1;
-				if (o2 < 0)
-					o2 = 0;
-				var o3 = String(o);
-				var p = "translate(-50%,50%) scale(" + o2 + ")";
-				document.getElementById("quote").innerHTML += txt.charAt(i);
-				i++;
-				$(".jam").css("opacity", o3);
-				$(".bulat").css("transform", p).css("opacity", o2);
-				setTimeout(typeWriter, speed);
-			} else if (j < subTxt.length) {
-				document.getElementById("subquote").innerHTML += subTxt.charAt(j);
-				j++;
-				setTimeout(typeWriter, speed);
-			}
-		}
-		typeWriter();
-	</script>
-</body>
-
-</html>
+			source.innerText
