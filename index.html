@@ -2194,4 +2194,35 @@
 		function randomQuote() {
 			let random = quotes[Math.floor(Math.random() * quotes.length)];
 			quotation.innerText = `"${random}"`;
-			source.innerText
+			source.innerText = "";
+		}
+
+		var i = 0;
+		var j = 0;
+		var speed = 50;
+
+		function typeWriter() {
+			if (i < txt.length) {
+				var o = (i / txt.length * 2);
+				var o = o.toFixed(0);
+				var o2 = o - 1;
+				if (o2 < 0)
+					o2 = 0;
+				var o3 = String(o);
+				var p = "translate(-50%,50%) scale(" + o2 + ")";
+				document.getElementById("quote").innerHTML += txt.charAt(i);
+				i++;
+				$(".jam").css("opacity", o3);
+				$(".bulat").css("transform", p).css("opacity", o2);
+				setTimeout(typeWriter, speed);
+			} else if (j < subTxt.length) {
+				document.getElementById("subquote").innerHTML += subTxt.charAt(j);
+				j++;
+				setTimeout(typeWriter, speed);
+			}
+		}
+		typeWriter();
+	</script>
+</body>
+
+</html>
